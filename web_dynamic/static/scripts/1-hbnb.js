@@ -1,9 +1,14 @@
-$( document ).ready(function() {  
-  $(':checkbox').on('click', function () {
+$( document ).ready(function() {
+  const dict_amts = {};
+  $('[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
-      console.log($(this).val());
+      dict_amts[$(this).data().id] = $(this).data().name;
+      console.log('Add');
+      console.log(dict_amts);
     } else {
-      console.log($(this).val());
+      delete dict_amts[$(this).data().id];
+      console.log('Deleted');
+      console.log(dict_amts);
     }
   });
 });
