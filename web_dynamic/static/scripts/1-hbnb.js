@@ -1,25 +1,19 @@
 $(document).ready(function () {
-  const dictAmenites = {};
-  let dictNames = [];
+  const dictAmenities = {};
+  let amenityNames = [];
   let outPut = '';
 
   $('[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
-      dictAmenites[$(this).data().id] = $(this).data().name;
-      console.log(dictAmenites);
+      dictAmenities[$(this).data().id] = $(this).data().name;
     } else {
-      delete dictAmenites[$(this).data().id];
-      console.log(dictAmenites);
+      delete dictAmenities[$(this).data().id];
     }
 
-    dictNames = [];
+    amenityNames = [];
 
-    for (const dictKey in dictAmenites) {
-      dictNames.push(dictAmenites[dictKey]);
-    }
-
-    outPut = dictNames.join(', ');
-    console.log(outPut);
+    Object.values(dictAmenities).forEach((value) => amenityNames.push(value));
+    outPut = amenityNames.join(', ');
     $('.amenities h4').text(outPut);
   });
 });
