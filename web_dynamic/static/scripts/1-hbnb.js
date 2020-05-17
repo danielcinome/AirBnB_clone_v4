@@ -1,14 +1,26 @@
 $( document ).ready(function() {
-  const dict_amts = {};
+  const dictAmenites = {};
+  let dictNames = [];
+  let outPut = "";
+
   $('[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
-      dict_amts[$(this).data().id] = $(this).data().name;
-      console.log('Add');
-      console.log(dict_amts);
+      dictAmenites[$(this).data().id] = $(this).data().name;
+      console.log(dictAmenites);
     } else {
-      delete dict_amts[$(this).data().id];
-      console.log('Deleted');
-      console.log(dict_amts);
+      delete dictAmenites[$(this).data().id];
+      console.log(dictAmenites);
     }
+
+    dictNames = [];
+
+    for(let dictKey in dictAmenites){
+      dictNames.push(dictAmenites[dictKey]);
+    }
+
+    outPut = dictNames.join(", ")
+    console.log(outPut);
+    $('.amenities h4').text(outPut);
+
   });
 });
