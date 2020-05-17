@@ -3,28 +3,29 @@ $(document).ready(function () {
   let amenityNames = [];
   let outPut = '';
 
-  $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
-    console.log(data.status);
-  });
-  /*if (response.statusCode === 200) {
-    $('header#api_status').removeclass('circle');
-    $('header#api_status').addClass('available');
-  } else {
-    $('header#api_status').removeclass('available');
-    $('header#api_status').addClass('circle');
-  }*/
-
   $('[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
       dictAmenities[$(this).data().id] = $(this).data().name;
     } else {
       delete dictAmenities[$(this).data().id];
     }
-
     amenityNames = [];
-
     Object.values(dictAmenities).forEach((value) => amenityNames.push(value));
     outPut = amenityNames.join(', ');
     $('.amenities h4').text(outPut);
+
   });
+      console.log('im here')
+    $.get('http://0.0.0.0:5001/api/v1/status/', (data, success) => {
+      console.log('now here')
+      if( success === 'success'){
+        $('#api_status').addClass('available')
+        console.log('red')
+      }else{
+        $('#api_status').removeClass('available')
+        console.log('not red')
+      }
+
+    });
+
 });
