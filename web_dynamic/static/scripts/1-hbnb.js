@@ -1,7 +1,7 @@
-$( document ).ready(function() {
+$(document).ready(function () {
   const dictAmenites = {};
   let dictNames = [];
-  let outPut = "";
+  let outPut = '';
 
   $('[type="checkbox"]').change(function () {
     if ($(this).is(':checked')) {
@@ -14,13 +14,12 @@ $( document ).ready(function() {
 
     dictNames = [];
 
-    for(let dictKey in dictAmenites){
+    for (const dictKey in dictAmenites) {
       dictNames.push(dictAmenites[dictKey]);
     }
 
-    outPut = dictNames.join(", ")
+    outPut = dictNames.join(', ');
     console.log(outPut);
     $('.amenities h4').text(outPut);
-
   });
 });
