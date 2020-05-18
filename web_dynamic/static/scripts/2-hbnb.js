@@ -17,10 +17,12 @@ $(document).ready(function () {
   });
       console.log('im here')
     $.get('http://0.0.0.0:5001/api/v1/status/', (data, success) => {
-      console.log('now here')
       if (success === 'success') {
         $('#api_status').addClass('available');
-        console.log('red');
+      }
+    }).fail((data, success) => {
+      if (success === 'error') {
+        $('#api_status').removeClass('available');
       }
     })
  });
