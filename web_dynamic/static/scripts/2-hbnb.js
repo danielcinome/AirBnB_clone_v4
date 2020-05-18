@@ -13,11 +13,10 @@ $(document).ready(function () {
     Object.values(dictAmenities).forEach((value) => amenityNames.push(value));
     outPut = amenityNames.join(', ');
     $('.amenities h4').text(outPut);
-
   });
-    $.get('http://0.0.0.0:5001/api/v1/status/', (data) => {
-      if (data.status === 'OK') {
-        $('#api_status').addClass('available');
-      }
-    })
- });
+  $.get('http://0.0.0.0:5001/api/v1/status/', (data) => {
+    if (data.status === 'OK') {
+      $('#api_status').addClass('available');
+    }
+  });
+});
