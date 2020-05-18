@@ -15,14 +15,9 @@ $(document).ready(function () {
     $('.amenities h4').text(outPut);
 
   });
-      console.log('im here')
-    $.get('http://0.0.0.0:5001/api/v1/status/', (data, success) => {
-      if (success === 'success') {
+    $.get('http://0.0.0.0:5001/api/v1/status/', (data) => {
+      if (data.status === 'OK') {
         $('#api_status').addClass('available');
-      }
-    }).fail((data, success) => {
-      if (success === 'error') {
-        $('#api_status').removeClass('available');
       }
     })
  });
