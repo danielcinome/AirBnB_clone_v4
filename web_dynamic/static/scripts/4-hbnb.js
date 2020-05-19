@@ -15,7 +15,7 @@ $(document).ready(function () {
     outPut = amenityNames.join(', ');
     $('.amenities h4').text(outPut);
   });
-  $.get('http://127.0.0.1:5001/api/v1/status/', (data) => {
+  $.get('http://0.0.0.0:5001/api/v1/status/', (data) => {
     if (data.status === 'OK') {
       $('#api_status').addClass('available');
     }
@@ -36,7 +36,7 @@ $(document).ready(function () {
     $('section.places').empty();
     $.ajax({
       type: 'POST',
-      url: 'http://127.0.0.1:5001/api/v1/places_search',
+      url: 'http://0.0.0.0:5001/api/v1/places_search',
       data: amenityJSON,
       contentType: 'application/json',
       success: function (response) {
