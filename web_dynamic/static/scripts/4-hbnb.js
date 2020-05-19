@@ -24,7 +24,7 @@ $(document).ready(function () {
   $('button').on('click', function (event) {
     const dictlist = {};
     let amenityJSON = {};
-    let amenityId = [];
+    const amenityId = [];
     Object.keys(dictAmenities).forEach((value) => amenityId.push(value));
     outId = amenityId.join(', ');
     dictlist.amenities = outId.split(', ');
